@@ -53,13 +53,13 @@ export default function Header() {
               </div>
             </div>
           </button>
-          <Link href='/' className='font-bold text-white tracking-wider'>
+          <Link href='/' className='font-bold tracking-wider'>
             PHOTOGRAPHY.
           </Link>
         </div>
 
         {!open && (
-          <button className='uppercase text-white slide'>Contact</button>
+          <button className='uppercase tracking-wider font-bold'>Contact</button>
         )}
       </header>
       <AnimatePresence>

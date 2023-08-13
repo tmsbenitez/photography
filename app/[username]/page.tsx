@@ -1,42 +1,83 @@
 import Image from 'next/image'
+import Link from 'next/link'
 import Header from '../components/Header'
+import { getPhotos, getUser } from '../helpers/getUnsplash'
+import SmoothScroll from '../helpers/SmoothScroll'
+import { type ParamsUser } from '@/types'
 
-export default async function Photographer({
-  params
-}: {
-  params: { username: string }
-}) {
-  async function getData() {
-    const res = await fetch(
-      `https://api.unsplash.com/users/${params.username}/photos?&per_page=30&client_id=${process.env.NEXT_PUBLIC_UNSPLASH_ACCESS_KEY}`
-    )
+export default async function Photographer({ params }: ParamsUser) {
+  const photos = await getPhotos(params.username)
+  const user = await getUser(params.username)
 
-    if (!res.ok) {
-      throw new Error('Failed to fetch data')
-    }
+  console.log(user)
 
-    return res.json()
-  }
-
-  const data = await getData()
+  const images = photos.map((photo: any) => (
+    <Image
+      priority
+      key={photo.id}
+      alt={photo.id}
+      width={500}
+      height={500}
+      src={photo.urls.regular}
+      className='sm:h-72 sm:h-[500px] object-cover'
+    />
+  ))
 
   return (
     <>
       <Header />
-      <div className='grid grid-cols-4 gap-4 w-fit px-12 py-36'>
-        {data.map((photo: any) => (
-          <Image
-            key={photo.id}
-            alt={photo.id}
-            placeholder='blur'
-            blurDataURL={photo.urls.small}
-            width={384}
-            height={384}
-            src={photo.urls.small}
-            className='w-96 h-96 object-cover'
-          />
-        ))}
-      </div>
+      <main className='overflow-x-hidden flex flex-col-reverse gap-6 sm:gap-0 pt-32 p-6 sm:p-0 sm:flex-col'>
+        <div className='flex sm:hidden flex-col gap-4'>{images}</div>
+        <SmoothScroll>{images}</SmoothScroll>
+        <div className='sm:fixed flex flex-col gap-4 sm:top-36 sm:left-12'>
+          <p className='text-7xl font-bold'>{user.name}</p>
+          <div className='flex gap-4 text-xl'>
+            {user.social?.instagram_username && (
+              <Link
+                className='opacity-50 tracking-wide duration-150 hover:opacity-100'
+                href={
+                  'https://www.instagram.com/' + user.social?.instagram_username
+                }
+              >
+                Instagram
+              </Link>
+            )}
+            {user.social?.portfolio_url && (
+              <Link
+                className='opacity-50 tracking-wide duration-150 hover:opacity-100'
+                href={user.social?.portfolio_url}
+              >
+                Portfolio
+              </Link>
+            )}
+            {user.social?.twitter && (
+              <Link
+                className='opacity-50 tracking-wide duration-150 hover:opacity-100'
+                href={user.social?.twitter}
+              >
+                Twitter
+              </Link>
+            )}
+            {user.social?.paypal_email && (
+              <Link
+                className='opacity-50 tracking-wide duration-150 hover:opacity-100'
+                href={user.social?.paypal_email}
+              >
+                PayPal
+              </Link>
+            )}
+            {user.username && (
+              <Link
+                className='opacity-50 tracking-wide duration-150 hover:opacity-100'
+                href={'https://unsplash.com/@' + user.username}
+              >
+                Unsplash
+              </Link>
+            )}
+          </div>
+          <p className='max-w-2xl sm:h-32 tracking-wide text-lg'>{user.bio}</p>
+        </div>
+      </main>
     </>
   )
 }

@@ -24,3 +24,7 @@ export interface GalleryItemProps {
   linkStyle?: string
   imgStyle?: string
 }
+
+export type ParamsUser = {
+  params: { username: string }
+}
