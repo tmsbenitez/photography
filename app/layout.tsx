@@ -38,10 +38,10 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang='en'>
+    <html lang='en' className={`${playfairDisplay.variable} ${sfPro.className}`}>
       <Head />
       <body
-        className={`${playfairDisplay.variable} ${sfPro.className} text-white bg-black scroll-smooth`}
+        className='text-white bg-black scroll-smooth'
       >
         {children}
       </body>
