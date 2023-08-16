@@ -13,12 +13,12 @@ const playfairDisplay = Playfair_Display({
 const sfPro = localFont({
   src: [
     {
-      path: '../public/fonts/SFPRODISPLAYREGULAR.otf',
+      path: '../public/fonts/SFPRODISPLAYREGULAR.ttf',
       weight: '400',
       style: 'normal'
     },
     {
-      path: '../public/fonts/SFPRODISPLAYBOLD.otf',
+      path: '../public/fonts/SFPRODISPLAYBOLD.ttf',
       weight: '600',
       style: 'bold'
     }
