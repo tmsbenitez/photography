@@ -1,5 +1,6 @@
 export interface NavbarProps {
   showItems: boolean
+  setOpen: Dispatch<SetStateAction<boolean>>
 }
 
 export interface NavLinkProps {
@@ -7,6 +8,7 @@ export interface NavLinkProps {
   href: string
   text: string
   index: number
+  setOpen: Dispatch<SetStateAction<boolean>>
 }
 
 export interface HeaderProps {

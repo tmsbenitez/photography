@@ -5,14 +5,16 @@ import Navbar, { NavLink } from './Navbar'
 
 describe('Navbar Component', () => {
   it('renders all nav links', () => {
-    const { getByText } = render(<Navbar showItems={true} />)
+    const { getByText } = render(<Navbar showItems={true} setOpen={true} />)
 
     const homeLink = getByText('Home')
-    const aboutLink = getByText('About')
+    const galleryLink = getByText('Gallery')
+    const photographersLink = getByText('Photographers')
     const contactLink = getByText('Contact')
 
     expect(homeLink).toBeInTheDocument()
-    expect(aboutLink).toBeInTheDocument()
+    expect(galleryLink).toBeInTheDocument()
+    expect(photographersLink).toBeInTheDocument()
     expect(contactLink).toBeInTheDocument()
   })
 })
@@ -20,7 +22,7 @@ describe('Navbar Component', () => {
 describe('NavLink Component', () => {
   it('renders with the correct text', () => {
     const { getByText } = render(
-      <NavLink showItems={true} href='/' text='Home' index={0} />
+      <NavLink showItems={true} setOpen={true} href='/' text='Home' index={0} />
     )
 
     const linkElement = getByText('Home')
@@ -29,7 +31,7 @@ describe('NavLink Component', () => {
 
   it('applies animation variants correctly', () => {
     const { container } = render(
-      <NavLink showItems={true} href='/' text='Home' index={0} />
+      <NavLink showItems={true} setOpen={true} href='/' text='Home' index={0} />
     )
 
     const liElement = container.querySelector('li')

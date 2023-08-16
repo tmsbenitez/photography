@@ -2,6 +2,7 @@ import './globals.css'
 import type { Metadata } from 'next'
 import { Playfair_Display } from 'next/font/google'
 import localFont from 'next/font/local'
+import Head from './head'
 
 const playfairDisplay = Playfair_Display({
   variable: '--font-playfairdisplay',
@@ -38,7 +39,10 @@ export default function RootLayout({
 }) {
   return (
     <html lang='en'>
-      <body className={`${playfairDisplay.variable} ${sfPro.className} text-white bg-black`}>
+      <Head />
+      <body
+        className={`${playfairDisplay.variable} ${sfPro.className} text-white bg-black scroll-smooth`}
+      >
         {children}
       </body>
     </html>

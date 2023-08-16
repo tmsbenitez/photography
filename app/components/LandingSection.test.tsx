@@ -11,7 +11,7 @@ describe('LandingSection', () => {
   it('displays the text correctly', () => {
     const { getByText } = render(<LandingSection />)
 
-    const textElements = ['Overcome', 'Creative', 'Adversity']
+    const textElements = ['Overcome', 'Creativity', 'Adversity']
     textElements.forEach(text => {
       const element = getByText(text)
       expect(element).toBeInTheDocument()
@@ -26,7 +26,7 @@ describe('LandingSection', () => {
 
     expect(videoElement).toHaveAttribute('autoPlay')
     expect(videoElement).toHaveAttribute('loop')
-    expect(sourceElement).toHaveAttribute('src', '/video/landscapevid.mp4')
+    expect(sourceElement).toHaveAttribute('src', '/video/landscape.mp4')
     expect(videoElement).toHaveClass('w-full')
     expect(videoElement).toHaveClass('object-cover')
     expect(videoElement).toHaveClass('h-screen')

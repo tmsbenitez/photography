@@ -14,6 +14,7 @@ export function GalleryItem(props: GalleryItemProps) {
     >
       <Image
         src={imgSrc}
+        priority={author === 'Jeremy Bishop'}
         alt={imgAlt}
         width={width}
         height={height}
@@ -35,7 +36,7 @@ export default function GallerySection() {
         <div className='flex flex-col lg:flex-row gap-16'>
           <GalleryItem
             href='/jeremybishop'
-            imgSrc='/img/jeremy-bishop/mountain.avif'
+            imgSrc='/img/jeremy-bishop/mountain.webp'
             imgAlt='jeremy-bishop mountain'
             author='Jeremy Bishop'
             width={653}
@@ -43,7 +44,7 @@ export default function GallerySection() {
           />
           <GalleryItem
             href='/scottwebb'
-            imgSrc='/img/scott-webb/street.avif'
+            imgSrc='/img/scott-webb/street.webp'
             imgAlt='scott-webb street'
             author='Scott Webb'
             width={1296}
@@ -53,7 +54,7 @@ export default function GallerySection() {
         <div className='flex flex-col lg:flex-row gap-16 items-center'>
           <GalleryItem
             href='/paulaborowska'
-            imgSrc='/img/paula-borowska/bridge.avif'
+            imgSrc='/img/paula-borowska/bridge.webp'
             imgAlt='paula-borowska bridge'
             author='Paula Borowska'
             width={1074}
@@ -61,7 +62,7 @@ export default function GallerySection() {
           />
           <GalleryItem
             href='/jontyson'
-            imgSrc='/img/jon-tyson/statue.avif'
+            imgSrc='/img/jon-tyson/statue.webp'
             imgAlt='jon-tyson statue'
             author='Jon Tyson'
             width={735}
@@ -71,7 +72,7 @@ export default function GallerySection() {
         <div className='flex flex-col lg:flex-row gap-16 items-end'>
           <GalleryItem
             href='/brookelark'
-            imgSrc='/img/brooke-lark/food.avif'
+            imgSrc='/img/brooke-lark/food.webp'
             imgAlt='brooke-lark food'
             author='Brooke Lark'
             width={653}
@@ -79,7 +80,7 @@ export default function GallerySection() {
           />
           <GalleryItem
             href='/kopidanny'
-            imgSrc='/img/daniel-koponyas/lakecity.avif'
+            imgSrc='/img/daniel-koponyas/lakecity.webp'
             imgAlt='daniel-koponyas lakecity'
             author='Daniel Koponyas'
             width={1296}

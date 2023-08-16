@@ -59,7 +59,13 @@ export default function Header() {
         </div>
 
         {!open && (
-          <button className='uppercase tracking-wider font-bold'>Contact</button>
+          <Link
+            className='uppercase tracking-wider font-bold'
+            target='_blank'
+            href='https://tmsbenitez.ar'
+          >
+            Contact
+          </Link>
         )}
       </header>
       <AnimatePresence>
@@ -74,7 +80,7 @@ export default function Header() {
               duration: 0.3
             }}
           >
-            <Navbar showItems={showItems} />
+            <Navbar showItems={showItems} setOpen={setOpen} />
           </motion.div>
         )}
       </AnimatePresence>

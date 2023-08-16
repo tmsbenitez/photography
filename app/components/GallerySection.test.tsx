@@ -14,12 +14,12 @@ describe('GalleryItem Component', () => {
   }
 
   it('renders with correct props', () => {
-    const { getByAltText } = render(<GalleryItem {...mockProps} />);
-    const image = getByAltText('Test Image');
+    const { getByAltText } = render(<GalleryItem {...mockProps} />)
+    const image = getByAltText('Test Image')
 
-    expect(image).toBeInTheDocument();
-    expect(image).toBeVisible();
-  });
+    expect(image).toBeInTheDocument()
+    expect(image).toBeVisible()
+  })
 })
 
 describe('GallerySection Component', () => {

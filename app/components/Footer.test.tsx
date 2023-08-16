@@ -8,7 +8,7 @@ describe('Footer Component', () => {
     const { getByText, getByRole } = render(<Footer />)
 
     const footerElement = getByRole('contentinfo')
-    const linkElement = getByText('Designed and Built with 🖤 by Tomas Benitez')
+    const linkElement = getByText('Designed and Built by Tomas Benitez')
 
     expect(footerElement).toBeInTheDocument()
     expect(linkElement).toBeInTheDocument()
@@ -17,7 +17,7 @@ describe('Footer Component', () => {
   it('has the correct link', () => {
     const { getByText } = render(<Footer />)
 
-    const linkElement = getByText('Designed and Built with 🖤 by Tomas Benitez')
+    const linkElement = getByText('Designed and Built by Tomas Benitez')
 
     expect(linkElement).toHaveAttribute('href', 'https://tmsbenitez.ar')
   })
@@ -25,7 +25,7 @@ describe('Footer Component', () => {
   it('applies hover styles on link', () => {
     const { getByText } = render(<Footer />)
 
-    const linkElement = getByText('Designed and Built with 🖤 by Tomas Benitez')
+    const linkElement = getByText('Designed and Built by Tomas Benitez')
 
     expect(linkElement).toHaveClass('opacity-50')
 

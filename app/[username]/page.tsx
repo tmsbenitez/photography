@@ -9,18 +9,18 @@ export default async function Photographer({ params }: ParamsUser) {
   const photos = await getPhotos(params.username)
   const user = await getUser(params.username)
 
-  console.log(user)
-
   const images = photos.map((photo: any) => (
-    <Image
-      priority
-      key={photo.id}
-      alt={photo.id}
-      width={500}
-      height={500}
-      src={photo.urls.regular}
-      className='sm:h-72 sm:h-[500px] object-cover'
-    />
+    <div key={photo.id} className='relative'>
+      <Image
+        alt={photo.id}
+        width={500}
+        height={500}
+        src={photo.urls.regular}
+        className='sm:h-72 sm:h-[500px] object-cover'
+        loading='lazy'
+      />
+      <div className='absolute inset-0 flex items-center justify-center w-full h-full -z-10 bg-neutral-900 rounded-lg animate-pulse' />
+    </div>
   ))
 
   return (
@@ -75,7 +75,13 @@ export default async function Photographer({ params }: ParamsUser) {
               </Link>
             )}
           </div>
-          <p className='max-w-2xl sm:h-32 tracking-wide text-lg'>{user.bio}</p>
+          {user.bio ? (
+            <p className='max-w-2xl sm:h-32 tracking-wide text-lg'>
+              {user.bio}
+            </p>
+          ) : (
+            <p>No bio provided.</p>
+          )}
         </div>
       </main>
     </>
