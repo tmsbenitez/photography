@@ -30,3 +30,5 @@ export interface GalleryItemProps {
 export type ParamsUser = {
   params: { username: string }
 }
+
+declare module '*.otf'
