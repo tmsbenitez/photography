@@ -82,6 +82,7 @@ export default async function Photographer({ params }: ParamsUser) {
           ) : (
             <p>No bio provided.</p>
           )}
+          <p className='-bottom-6 hidden sm:flex animate-pulse font-bold text-sm absolute'>SCROLL</p>
         </div>
       </main>
     </>
