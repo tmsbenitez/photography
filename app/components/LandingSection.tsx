@@ -20,7 +20,7 @@ export default function LandingSection() {
         loop
         className='w-full object-cover h-screen -z-10 brightness-75'
       >
-        <source src='/video/landscape.mp4' />
+        <source src='/video/landscape-compressed.mp4' />
       </video>
       <div
         data-testid='gradient-overlay'
